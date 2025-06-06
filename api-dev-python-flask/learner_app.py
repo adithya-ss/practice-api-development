@@ -34,4 +34,4 @@ def handle_url_parameters():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5556, debug=True)
-# To run the Flask application, use the command: python app.py
+# To run the Flask application, use the command: python learner_app.py
