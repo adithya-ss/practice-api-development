@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>
-            Flask Application
-        </title>
-    </head>
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+{% block content %}
     <body>
         <h1>
             Hello, World!
@@ -15,5 +10,4 @@
                 <li  {% if item == 'Item 2' %}style="color: green"{% endif %}>{{ item }}</li>
             {% endfor %}
         </ol>
-    </body>
-</html>
+{% endblock %}
