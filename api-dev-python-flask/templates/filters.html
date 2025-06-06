@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} About Page {% endblock %}
+{% block content %}
+    <body>
+        <h1>
+            Filters Page.
+        </h1>
+        <p> <b><i>Data without filters:</i></b> {{ sample_text }} </p>
+        <p> <b><i></i>Using the upper filter:</i></b> {{ sample_text|upper}} </p>
+        <p> <b><i></i>Using the lower filter:</i></b> {{ sample_text|lower}} </p>
+        <p> <b><i></i>Using the capitalize filter:</i></b> {{ sample_text|capitalize}} </p>
+        <p> <b><i></i>Using the replace filter:</i></b> {{ sample_text|replace('e', '3')}} </p>
+        <p> <b><i></i>Using the custom filter:</i></b> {{ sample_text|add_space_between_letters(' This is my data being passed to the filter')}} </p>
+{% endblock %}
