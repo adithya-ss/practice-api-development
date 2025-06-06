@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Flask Application
+        </title>
+    </head>
+    <body>
+        <h1>
+            Hello, World!
+        </h1>
+        <ol>
+            {% for item in list_of_items %}
+                <li  {% if item == 'Item 2' %}style="color: green"{% endif %}>{{ item }}</li>
+            {% endfor %}
+        </ol>
+    </body>
+</html>
