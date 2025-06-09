@@ -50,3 +50,7 @@ A Flask application can be run using one of the following 2 commands:
 * There are already pre-exisising (default) filters available, such as lower, upper, replace etc. However, custom filters can also be created.
 * Custom filters can be created using the template_filter function on the app, similar to the route function on the app.
     > Ex: app.template_filter('custom_filter')
+
+### Forms and Requests
+* When working with forms, it is important to note that the name of the form field is to be used in request.form.get().
+* When working with files, we get the file by using request.files.get(), instead of request.forms.get()
