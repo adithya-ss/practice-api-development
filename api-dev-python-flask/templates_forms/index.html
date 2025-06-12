@@ -22,4 +22,10 @@
         <input type="file" name="File" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required><br><br>
         <input type="submit" value="Convert to CSV">
     </form>
+
+    <h2>Download</h2>
+    <form method="POST" action="{{ url_for('download_csv_uuid') }}" enctype="multipart/form-data">
+        <input type="file" name="File" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required><br><br>
+        <input type="submit" value="Download File">
+    </form>
 {% endblock %}

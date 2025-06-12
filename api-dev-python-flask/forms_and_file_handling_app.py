@@ -1,5 +1,7 @@
+import os
+import uuid
 import pandas as pd
-from flask import Flask, render_template, request, Response
+from flask import Flask, render_template, request, Response, send_from_directory
 
 forms_and_file_app = Flask(__name__, template_folder='templates_forms')
 
@@ -42,6 +44,25 @@ def convert_csv():
         )
         return response
     return "No file uploaded or unsupported file type."
+
+@forms_and_file_app.route('/download_csv_uuid', methods=['POST'])
+def download_csv_uuid():
+    uploaded_file = request.files.get('File')
+    if uploaded_file:
+        dataframe = pd.read_excel(uploaded_file)
+        if not os.path.exists('downloads'):
+            os.makedirs('downloads')
+        file_name = f'converted_file-{uuid.uuid4()}.csv'
+        dataframe.to_csv(os.path.join('downloads', file_name))
+
+        # The key (file_name) here is the value accepted by the download endpoint in the anchor tag in the HTML in the download.html template.
+        return render_template('download.html', file_name=file_name)
+
+# The name of the file in filename, is the key in the anchor tag in the HTML in the download.html template.
+@forms_and_file_app.route('/download/<filename>', methods=['GET'])
+def download(filename):
+    return send_from_directory('downloads', filename, download_name='result_csv_with_uuid.csv')
+
 
 if __name__ == '__main__':
     forms_and_file_app.run(host='0.0.0.0', debug=True)
