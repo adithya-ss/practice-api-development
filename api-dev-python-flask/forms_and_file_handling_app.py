@@ -1,5 +1,5 @@
 import pandas as pd
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Response
 
 forms_and_file_app = Flask(__name__, template_folder='templates_forms')
 
@@ -29,6 +29,19 @@ def file_upload():
             # Process Excel file
             dataframe = pd.read_excel(uploaded_file)
             return dataframe.to_html()
+
+@forms_and_file_app.route('/convert_csv', methods=['POST'])
+def convert_csv():
+    uploaded_file = request.files.get('File')
+    if uploaded_file:
+        dataframe = pd.read_excel(uploaded_file)
+        response = Response(
+            dataframe.to_csv(),
+            mimetype='text/csv',
+            headers={"Content-disposition": "attachment; filename=converted_file.csv"}
+        )
+        return response
+    return "No file uploaded or unsupported file type."
 
 if __name__ == '__main__':
     forms_and_file_app.run(host='0.0.0.0', debug=True)
