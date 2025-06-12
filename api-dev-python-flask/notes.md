@@ -54,3 +54,10 @@ A Flask application can be run using one of the following 2 commands:
 ### Forms and Requests
 * When working with forms, it is important to note that the name of the form field is to be used in request.form.get().
 * When working with files, we get the file by using request.files.get(), instead of request.forms.get()
+
+### UUIDs
+UUIDs (Universally Unique Identifiers) come in different versions, each with a distinct method of generation and characteristics.
+* UUID1 is time-based and uses the MAC address.
+* UUID2 is a DCE security version with specific purposes
+* UUID3 and UUID5 generate IDs by hashing a namespace and name
+* UUID4 is randomly generated. 
