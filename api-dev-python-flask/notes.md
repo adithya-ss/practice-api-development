@@ -61,3 +61,10 @@ UUIDs (Universally Unique Identifiers) come in different versions, each with a d
 * UUID2 is a DCE security version with specific purposes
 * UUID3 and UUID5 generate IDs by hashing a namespace and name
 * UUID4 is randomly generated. 
+
+### Static Files
+* We can make use of the static_folder directive along with the static_url_path directive, similar to template_folder, while creating the flask application. This tells the app from which location, it has to find and serve the static files.
+* Static files can be anything, like a CSS, JavaScript or an image.
+* For rendering custom CSS defined as a static file, we need to import/use it in the HTML file through the `<link>` tag.
+* For rendering custom JavaScript defined as a static file, we need to import/use it in the HTML file through the `<script>` tag.
+* We can also integrate bootstrap, by specifying the `href` for `<link>` tag and `src` for `<script>` tag to use the bootstrap files.
