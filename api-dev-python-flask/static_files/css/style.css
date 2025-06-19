@@ -1,0 +1,12 @@
+.special {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    font-size: 20pt;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.leave_some_space {
+    margin: 10px;
+}
