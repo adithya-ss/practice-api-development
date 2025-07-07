@@ -68,3 +68,9 @@ UUIDs (Universally Unique Identifiers) come in different versions, each with a d
 * For rendering custom CSS defined as a static file, we need to import/use it in the HTML file through the `<link>` tag.
 * For rendering custom JavaScript defined as a static file, we need to import/use it in the HTML file through the `<script>` tag.
 * We can also integrate bootstrap, by specifying the `href` for `<link>` tag and `src` for `<script>` tag to use the bootstrap files.
+
+### Sessions and Cookies
+* We want to be able to store/save information from a sessions. Since HTTP is stateless, there is no built-in way of saving data.
+    * So the 2 ways of doing it is by savings sessions (information on the server side), or cookies (information on the client side)
+    * Important/Secure information should be saved on the server side and the less important or general information should be saved on the client side.
+* When clearing sessions, instead of clearing out all data, we can also choose to remove selective data by using the session.pop() method, by passing the name of the field we want to clear.
